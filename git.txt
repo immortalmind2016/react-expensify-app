@@ -1,0 +1,19 @@
+========================================
+GIT COMMANDS
+========================================
+$ git init ->  now add untracked files : 
+$ git status - > get files on the project at this time 
+$ git add -> add files from untracked files to track (change area)
+add package.json 
+add yarn.lock 
+git add . -> to add all files
+
+
+
+
+
+========================================
+GIT Configuration IGNORE FILES 
+========================================
+
+make file called ( .gitignore )
