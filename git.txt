@@ -10,7 +10,10 @@ add yarn.lock
 git add . -> to add all files
 ----------------------------------------
 $ git commit -m "initial commit" 
-m reffer to messafe 
+----------------------------------------
+-m reffer to message
+----------------------------------------
+
 
 
 
