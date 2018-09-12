@@ -1,3 +1,0 @@
-yarn test -- --watch
-
-means that --watch is related to script it self 
