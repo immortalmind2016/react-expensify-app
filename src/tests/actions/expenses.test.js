@@ -1,4 +1,8 @@
-import {addExpense,editExpense,removeExpense} from "../../actions/expenses"
+import configureMockStore from "redux-mock-store"
+import {addExpense,editExpense,removeExpense,startAddExpense} from "../../actions/expenses"
+import thunk from "redux-thunk";
+import database from "../../firebase/firebase"
+const createMockStore=configureMockStore([thunk]);
 
 test("should setup remove Expense action object",()=>{
   const action=removeExpense({id:"123abc"});
@@ -20,29 +24,72 @@ test("should setup Edit Expense action object",()=>{
 
   })
 })
-
-test("should setup Add Expense action with provided values",()=>{
-    const expenseData={
+  const expenseData={
         description:"rent",
         amount:100,
         createdAt:1000,
         note:"this was last months rend"
 
     }
+test("should setup Add Expense action with provided values",()=>{
+  
   const action=addExpense(expenseData);
   expect(action).toEqual({
       type:"ADD_EXPENSE",
       expense:
         {
-          ...expenseData,
-          id:expect.any(String)
-          
+          ...expenseData
+
+        
         }
 
   })
 })
+// to force jest to wait and avoid asynchronous use  done 
+test("should add expense to database and store",(done)=>{
+   const store=createMockStore({})
+   store.dispatch(startAddExpense(expenseData)).then(()=>{
+     const actions=store.getActions(); // return acction -> addExpense
+     expect(actions[0]).toEqual({
+       type:"ADD_EXPENSE",
+       expense:{
+         id:expect.any(String),
+         ...expenseData
+       }
+     })
+     return database.ref(`expenses/${actions[0].expense.id}`).once("value")
+   
+   }).then((snapshot)=>{
+       expect(snapshot.val()).toEqual(expenseData);  done();
+     })
 
-
+})
+test("should add expense with defaults to database and store",(done)=>{
+   const store=createMockStore({})
+   store.dispatch(startAddExpense({})).then(()=>{
+     const actions=store.getActions(); // return acction -> addExpense
+     expect(actions[0]).toEqual({
+       type:"ADD_EXPENSE",
+       expense:{
+         id:expect.any(String),
+         description:"",
+         amount:0,
+         createdAt:0,
+         note:""
+       }
+     })
+     return database.ref(`expenses/${actions[0].expense.id}`).once("value")
+   
+   }).then((snapshot)=>{
+       expect(snapshot.val()).toEqual({
+         description:"",
+         amount:0,
+         createdAt:0,
+         note:""
+       });  done();
+     })
+})
+/*
 test("should setup Add Expense action with default values",()=>{
      const expenseData={
         description:"",
@@ -62,5 +109,5 @@ test("should setup Add Expense action with default values",()=>{
         }
 
   })
-})
+})*/
 //use toEqual with arrays and Objects

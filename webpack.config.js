@@ -1,6 +1,18 @@
 // entry -> output
 const path=require("path")
 const ExtractTextPlugin=require("extract-text-webpack-plugin")
+const webpack=require("webpack")
+process.env.NODE_ENV=process.env.NODE_ENV||"development"
+if(process.env.NODE_ENV==="test"){
+
+  require("dotenv").config({path:".env.test"})
+
+}else if(process.env.NODE_ENV==="development"){
+
+ require("dotenv").config({path:".env.development"})
+
+}
+//process.env.NODE_ENV
 //we use path.join(__dirname) due to diff operatWing system and computers paths
 module.exports=(env,argv)=>{
 const isProduction=env==="production";
@@ -31,7 +43,16 @@ return {
     ]
   },
   plugins:[
-    CSSExtract
+    CSSExtract,  //will pass this values through bundle.js
+    new webpack.DefinePlugin({
+      "process.env.FIREBASE_API_KEY":JSON.stringfy(process.env.FIREBASE_API_KEY),
+      "process.env.FIREBASE_AUTH_DOMAIN":JSON.stringfy(process.env.FIREBASE_AUTH_DOMAIN),
+      "process.env.FIREBASE_DATA_BASE_URL":JSON.stringfy(process.env.FIREBASE_DATA_BASE_URL),
+      "process.env.FIREBASE_PROJECT_ID":JSON.stringfy(process.env.FIREBASE_PROJECT_ID),
+      "process.env.FIREBASE_STORAGE_BUCKET":JSON.stringfy(process.env.FIREBASE_STORAGE_BUCKET),
+      "process.env.FIREBASE_MESSAGING_SENDER_ID":JSON.stringfy(process.env.FIREBASE_MESSAGING_SENDER_ID)
+
+    })
   ],
   devtool:isProduction?"source-map":"cheap-module-eval-source-map",
     devServer: {
