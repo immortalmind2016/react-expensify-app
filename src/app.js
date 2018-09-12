@@ -13,7 +13,7 @@ import {setTextFilter,setStartDate,setEndDate} from "./actions/filters"
 import getVisibleExprenses from "./selectors/expenses"
 import 'react-dates/initialize';
 import "./firebase/firebase";
-import "../playground/promises";
+
 
 const store=configureStore();
 
