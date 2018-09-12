@@ -1,7 +1,11 @@
 // entry -> output
 const path=require("path")
-//we use path.join(__dirname) due to diff operating system and computers paths
-const config={
+const ExtractTextPlugin=require("extract-text-webpack-plugin")
+//we use path.join(__dirname) due to diff operatWing system and computers paths
+module.exports=(env,argv)=>{
+const isProduction=env==="production";
+const CSSExtract=new ExtractTextPlugin("styles.css");
+return {
     entry:"./src/app.js",
     output:{
         path:path.join(__dirname,"public"),
@@ -16,12 +20,20 @@ const config={
       },
       {
         test:/\.s?css$/, // which make S optional 
-        use: ['style-loader', 'css-loader', 'sass-loader' ] //array of loaders
+        use:CSSExtract.extract({
+          use:[
+            "css-loader",
+            "sass-loader"
+          ]
+        })
 
       }
     ]
   },
-  devtool:"cheap-module-eval-source-map",
+  plugins:[
+    CSSExtract
+  ],
+  devtool:isProduction?"source-map":"cheap-module-eval-source-map",
     devServer: {
     contentBase: path.join(__dirname, 'public'),
      
@@ -35,4 +47,5 @@ const config={
 //loader , it's handling a behavior of files 
 // loader as i teach webpack how to deal with babel , React
 // rule what's will you make with rule
-module.exports=config
+}
+
