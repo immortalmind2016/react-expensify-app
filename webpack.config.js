@@ -8,7 +8,7 @@ const CSSExtract=new ExtractTextPlugin("styles.css");
 return {
     entry:"./src/app.js",
     output:{
-        path:path.join(__dirname,"public"),
+        path:path.join(__dirname,"public","dist"),
         filename:"bundle.js"
     },
      module: {
@@ -38,7 +38,7 @@ return {
     contentBase: path.join(__dirname, 'public'),
      
      historyApiFallback:true //to render HTTP URL send back to index.html
-     ,
+      ,publicPath:"/dist/"
            }
   //there's many devtools in webpack
   // devServer more faster also save Files

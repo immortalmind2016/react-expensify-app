@@ -8,6 +8,6 @@ app.use(express.static(publicPath));
 app.get("*",(req,res,next)=>{
     res.sendFile(path.join(publicPath,"index.html"))
 })
-app.listen(port,()=>{
+app.listen(port||3000,()=>{
     console.log("server is up!")
 })
