@@ -1,7 +1,7 @@
 import React from "react"
 import {shallow} from "enzyme"
 import ExpenseForm from "../../components/ExpenseForm"
-import moment from "moment"
+
 test("should render ExpenseForm correctly ",()=>{
     const Wrapper=shallow(<ExpenseForm />);
     expect(Wrapper).toMatchSnapshot();

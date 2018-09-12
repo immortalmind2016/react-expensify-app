@@ -13,8 +13,8 @@ exports[`should render expenselist item with provided expense 1`] = `
   </Link>
   <p>
     50
-     - 
-    10
+    -
+    January 1st, 1970
   </p>
   <button
     onClick={[Function]}
