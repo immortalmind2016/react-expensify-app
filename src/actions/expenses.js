@@ -1,5 +1,6 @@
 import uuid from "uuid"
 import database from "../firebase/firebase"
+import expenses from "../tests/fixtures/expenses"
 // component calls action generator
 // action generator returns object
 // component dispatches object
@@ -41,7 +42,13 @@ export const removeExpense=({id})=>({
     id
 
 })
-
+export const startRemoveExpense=({id})=>{
+    return (dispatch)=>{
+           return database.ref(`expenses/${id}`).remove().then(()=>{
+                dispatch(removeExpense({id}));
+           });      
+    }
+}
 // EDIT_EXPENSE
 export const editExpense=(id,updates)=>({
     type:"EDIT_EXPENSE",
@@ -49,7 +56,14 @@ export const editExpense=(id,updates)=>({
     updates
 
 })
+export const setEditExpense=(id,updates)=>{
+    return (dispatch)=>{
+       return  database.ref(`expenses/${id}`).update(updates).then(()=>{
+             dispatch(editExpense(id,updates))
+        })
 
+    }
+}
 
 // SET_EXPENSES
 export const setExpenses=(expenses)=>({
@@ -59,8 +73,8 @@ export const setExpenses=(expenses)=>({
 export const startSetExpenses=()=>{
     let expenseData={}
     return (dispatch)=>{
-        beforeEach((done)=>{
-            expensesData.forEach(({id,description,note,amount,createdAt})=>{
+    
+            expenses.forEach(({id,description,note,amount,createdAt})=>{
             expenseData[id]={
                 description,
                 note,
@@ -69,7 +83,7 @@ export const startSetExpenses=()=>{
             }
 
         })
-                })
+              
         let data=[]
        return  database.ref('expenses').once("value").then((snapshot)=>{
            snapshot.forEach((childSnapshot)=>{

@@ -1,5 +1,5 @@
 import configureMockStore from "redux-mock-store"
-import {addExpense,editExpense,removeExpense,startAddExpense,setExpenses,startSetExpenses} from "../../actions/expenses"
+import {addExpense,editExpense,removeExpense,setEditExpense,startRemoveExpense,startAddExpense,setExpenses,startSetExpenses} from "../../actions/expenses"
 import thunk from "redux-thunk";
 import database from "../../firebase/firebase"
 import expenses from "../fixtures/expenses"
@@ -114,7 +114,6 @@ test("should test start Set expenses action object",(done)=>{
     const action =store.getActions()
   return action
     }).then((action)=>{
-
   
   expect(action[0]).toEqual({expenses,type:"SET_EXPENSES"})
   done()
@@ -124,8 +123,29 @@ test("should test start Set expenses action object",(done)=>{
 
 })
 
+test('should Remove expenses action object',(done)=>{
+  const store=createMockStore()
+  
+  store.dispatch(startRemoveExpense({id:"1"})).then(()=>{
+    
+      const action=store.getActions()
+     expect(action[0]).toEqual({id:expenses[0].id,type:"REMOVE_EXPENSE" })
+      done(0)
 
+  
+  })
+})
 
+test("should test edit expense object action",(done)=>{
+const store=createMockStore()
+store.dispatch(setEditExpense("1",{description:"hello test"})).then(()=>{
+  const action=store.getActions()
+     expect(action[0]).toEqual({updates:{description:"hello test"},id:expenses[0].id,type:"EDIT_EXPENSE" })
+ done()
+
+})
+
+})
 /*
 test("should setup Add Expense action with default values",()=>{
      const expenseData={

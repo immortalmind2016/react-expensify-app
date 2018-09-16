@@ -18,7 +18,6 @@ import "./firebase/firebase";
 const store=configureStore();
 
 store.dispatch(addExpense({description:"water bill",note:"anything",amount:100,createdAt:10}))
-store.dispatch(addExpense({description:"gas bill",note:"anything",amount:500,createdAt:500}))
 
 ReactDOM.render(<p>Loading...</p>,document.getElementById("app"))
 
