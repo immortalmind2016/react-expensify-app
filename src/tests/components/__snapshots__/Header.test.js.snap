@@ -10,7 +10,7 @@ exports[`should test Header component 1`] = `
       activeClassName="is-active"
       aria-current="page"
       exact={true}
-      to="/"
+      to="/dashboard"
     >
        dashboard 
     </NavLink>
@@ -35,6 +35,11 @@ exports[`should test Header component 1`] = `
     >
        help 
     </NavLink>
+    <button
+      onClick={[Function]}
+    >
+      Logout
+    </button>
   </div>
 </header>
 `;
