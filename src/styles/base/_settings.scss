@@ -1,14 +1,23 @@
 // Colors
+$dark-grey:#333333;
+$light-grey:#f3f3f3;
+$light-blue:#1874a0;
 
+$dark-blue:#364051;
 //spacing
+$s-size:0.7rem;
 $m-size:1.8rem;
-
+$l-size:2rem;
 //borders-reduis
 $s-border:0.7rem;
+
 $l-border:2rem;
+
 button:disabled{
 
  cursor: default
 }
 
 
+// screens
+$desktop-breakpoint:450px;

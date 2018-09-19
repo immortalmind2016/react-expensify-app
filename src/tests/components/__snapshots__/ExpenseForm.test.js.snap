@@ -1,23 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseForm correctly  1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <div>
     <withStyles(SingleDatePicker)
       anchorDirection="left"
       appendToBody={false}
@@ -107,36 +110,44 @@ exports[`should render ExpenseForm correctly  1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textArea
-      onChange={[Function]}
-      placeholder="add a note for your Expense (optional)"
-      value=""
-    />
-    <button>
+  </div>
+  <textArea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="add a note for your Expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button-layout"
+    >
       Add Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should render ExpenseForm correctly with expense data  1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value="rent2"
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value="0.5"
-    />
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value="rent2"
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value="0.5"
+  />
+  <div>
     <withStyles(SingleDatePicker)
       anchorDirection="left"
       appendToBody={false}
@@ -226,36 +237,44 @@ exports[`should render ExpenseForm correctly with expense data  1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textArea
-      onChange={[Function]}
-      placeholder="add a note for your Expense (optional)"
-      value="rent2"
-    />
-    <button>
-      Add Expense
+  </div>
+  <textArea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="add a note for your Expense (optional)"
+    value="rent2"
+  />
+  <div>
+    <button
+      className="button-layout"
+    >
+      Save
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should render error for invalid form submission  1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <div>
     <withStyles(SingleDatePicker)
       anchorDirection="left"
       appendToBody={false}
@@ -345,39 +364,49 @@ exports[`should render error for invalid form submission  1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textArea
-      onChange={[Function]}
-      placeholder="add a note for your Expense (optional)"
-      value=""
-    />
-    <button>
+  </div>
+  <textArea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="add a note for your Expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button-layout"
+    >
       Add Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should render error for invalid form submission  2`] = `
-<div>
-  <p>
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <p
+    className="form__error"
+  >
     please provide Description and amount .
   </p>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <div>
     <withStyles(SingleDatePicker)
       anchorDirection="left"
       appendToBody={false}
@@ -467,36 +496,44 @@ exports[`should render error for invalid form submission  2`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textArea
-      onChange={[Function]}
-      placeholder="add a note for your Expense (optional)"
-      value=""
-    />
-    <button>
+  </div>
+  <textArea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="add a note for your Expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button-layout"
+    >
       Add Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should set description on input change   1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <div>
     <withStyles(SingleDatePicker)
       anchorDirection="left"
       appendToBody={false}
@@ -586,36 +623,44 @@ exports[`should set description on input change   1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textArea
-      onChange={[Function]}
-      placeholder="add a note for your Expense (optional)"
-      value=""
-    />
-    <button>
+  </div>
+  <textArea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="add a note for your Expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button-layout"
+    >
       Add Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should set note on textarea change   1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <div>
     <withStyles(SingleDatePicker)
       anchorDirection="left"
       appendToBody={false}
@@ -705,14 +750,19 @@ exports[`should set note on textarea change   1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textArea
-      onChange={[Function]}
-      placeholder="add a note for your Expense (optional)"
-      value=""
-    />
-    <button>
+  </div>
+  <textArea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="add a note for your Expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button-layout"
+    >
       Add Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;

@@ -14,6 +14,7 @@ import {login,logout} from "./actions/auth"
 import getVisibleExprenses from "./selectors/expenses"
 import 'react-dates/initialize';
 import {firebase} from "./firebase/firebase";
+import LoadingPage from "./components/LoadingPage";
 
 const store=configureStore();
 
@@ -26,7 +27,8 @@ const renderApp=()=>{
 
     }
 }
-ReactDOM.render(<p>Loading...</p>,document.getElementById("app"))
+ReactDOM.render(<LoadingPage />,document.getElementById("app"))
+
 
 const jsx=(
     <Provider store={store}>

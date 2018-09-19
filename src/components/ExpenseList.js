@@ -4,16 +4,27 @@ import selectExpenses from "../selectors/expenses"
 import ExpenseListItem from "./ExpenseListItem"
 // we added export named to Testing
 export const ExpenseList=(props)=>(
-    <div>
-        <h1>Expense List</h1>
-     {
-         props.expenses.length===0?(<p>No Expenses</p>):(
-              props.expenses.map((element)=>(
-            <ExpenseListItem key={element.id} {...element} />
-                    ))
-         )
-     }
-       
+    <div className="content-container">
+
+        <div className="list-header">   
+            <div className="show-for-mobile">Expenses</div>
+            <div className="show-for-desktop">Expense</div>
+            <div className="show-for-desktop">Amount</div>
+        </div>
+     <div className="list-body">
+
+            {
+                props.expenses.length===0?(
+                    <div class="list-item list-item--message">
+                    <span> No Expenses</span>
+                    </div>
+                    ):(
+                    props.expenses.map((element)=>(
+                    <ExpenseListItem key={element.id} {...element} />
+                            ))
+                )
+            }
+       </div>
     </div>
 )
 

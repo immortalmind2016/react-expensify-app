@@ -9,24 +9,22 @@ import AddExpensePage from "../components/AddExpensePage"
 import EditExpensePage from "../components/EditExpensePage"
 import LoginPage from "../components/LoginPage"
 import PrivateRoute from "./PrivateRoute";
-
+import PublicRoute from "./PublicRoute"
 export const history=createHistory(); 
 // we use this module instead of BrowserHistory component
 // to can export browserhistory
 const AppRouter=()=>(
      <Router history={history}>
         <div>
-
         <Switch> {/* show every Route if match or not if no go down to remain Route */ }
-           <Route path="/" component={LoginPage} exact={true} />
+            <PublicRoute path="/" component={LoginPage} exact={true} />
             <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
             <PrivateRoute path="/create" component={AddExpensePage}/>
             <PrivateRoute path="/edit/:id" component={EditExpensePage} />
             <PrivateRoute path="/help" component={HelpExpensePage} />
-            <Route path="/" component={NotFoundPage} />
-
+    
             <Route component={NotFoundPage} />
-        </Switch>
+        </Switch>   
         </div>
     </Router>
 )
